@@ -24,6 +24,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
-        cd Script && git checkout master && cd ..
+        cd Script && git checkout master && ls && cd ..
         npm install
         node Script/JD-DailyBonus/JD_DailyBonus.js
