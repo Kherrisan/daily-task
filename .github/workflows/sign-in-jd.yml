@@ -30,4 +30,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         npm install
-        node Script/JD_DailyBonus.js
+        node Script/JD-DailyBonus/JD_DailyBonus.js
