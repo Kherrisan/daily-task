@@ -28,4 +28,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
         npm install
-        node Script/jd-daily-sign.js
+        node Script/JD_DailyBonus.js
