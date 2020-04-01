@@ -1,0 +1,3 @@
+[submodule "Script"]
+	path = Script
+	url = git@github.com:Kherrisan/Script.git
