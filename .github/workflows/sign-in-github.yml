@@ -26,6 +26,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "daily sign in Github" -a
+        git pull
     - name: push to the repository
       uses: ad-m/github-push-action@v0.5.0
       with:
