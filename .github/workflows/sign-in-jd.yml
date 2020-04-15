@@ -28,7 +28,8 @@ jobs:
     - run: npm install
     - run: |
         function join_by { local IFS="$1"; shift; echo "$*"; }
-        echo ::set-output name=result::`join_by , `node Script/JD-DailyBonus/JD_DailyBonus.js``
+        resultList = `node Script/JD-DailyBonus/JD_DailyBonus.js`
+        echo ::set-output name=result::`join_by , $resultList`
       id: sign
     - run: echo "${{ steps.sign.outputs.result }}"
     - uses: appleboy/telegram-action@master
