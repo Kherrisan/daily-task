@@ -29,6 +29,7 @@ jobs:
     - run: 
         echo "::set-output name=result::$(node Script/JD-DailyBonus/JD_DailyBonus.js)"
       id: sign
+    - run: echo ${{ steps.sign.outputs.result }}
     - uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
