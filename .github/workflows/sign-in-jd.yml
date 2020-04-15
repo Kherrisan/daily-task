@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: 
-        echo "::set-output name=result::$(node Script/JD-DailyBonus/JD_DailyBonus.js)"
+        echo "::set-output name=result::`node Script/JD-DailyBonus/JD_DailyBonus.js`"
       id: sign
     - run: echo "${{ steps.sign.outputs.result }}"
     - uses: appleboy/telegram-action@master
