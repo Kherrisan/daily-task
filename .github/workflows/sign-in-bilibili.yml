@@ -20,6 +20,6 @@ jobs:
       - run: echo ::set-output name=result::`python3 dosign.py`
         id: sign
       - run: echo "${{ steps.sign.outputs.result }}"
-      - run: curl https://api.telegram.org/bot1022681587:AAGbCwF8DpDQ8ouavrRZAR5gGDMIT9t-kbk/sendMessage?chat_id=-1001346407156%20&text=Hello
+      - run: curl https://api.telegram.org/bot1022681587:AAGbCwF8DpDQ8ouavrRZAR5gGDMIT9t-kbk/sendMessage?chat_id=-1001346407156%20&text=${{ steps.sign.outputs.result }}
 
     
