@@ -26,11 +26,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: 
-        echo "##[set-output name=result;]$(node Script/JD-DailyBonus/JD_DailyBonus.js)"
+    - run: |
+        function join_by { local IFS="$1"; shift; echo "$*"; }
+        resultList=`node Script/JD-DailyBonus/JD_DailyBonus.js`
+        echo ::set-output name=result::`join_by , $resultList`
       id: sign
+    - run: echo "${{ steps.sign.outputs.result }}"
     - uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: ${{ steps.sign.outputs.result }}
+        message: "${{ steps.sign.outputs.result }}"
