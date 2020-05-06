@@ -32,8 +32,5 @@ jobs:
         echo ::set-output name=result::`join_by , $resultList`
       id: sign
     - run: echo "${{ steps.sign.outputs.result }}"
-    - uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: "${{ steps.sign.outputs.result }}"
+    - run: curl -X POST -F 'chat_id=${{ secrets.TELEGRAM_TO }}' -F 'text=京东签到:${{ steps.sign.outputs.result }}' "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage"
+
